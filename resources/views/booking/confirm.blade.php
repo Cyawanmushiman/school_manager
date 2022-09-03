@@ -23,7 +23,7 @@
             <p class="couseText">講座料金:{{$booking->amount}}</p>
         </div>
 
-        <form action="{{route("payment")}}" method="post" class="center">
+        <form action="{{route('payment',$booking->id)}}" method="post" class="center">
             @csrf
             <script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button"
                 data-key="pk_test_82b432d0e9e7b81b2ec75a52" data-text="クレジットカード登録">

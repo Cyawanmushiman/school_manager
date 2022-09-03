@@ -35,7 +35,7 @@ Route::resource('couses',CouseController::class);
 Route::post('apply/{couse}', [BookingController::class, 'apply'])->name('apply');
 Route::post('checkCoupon/{couse}', [BookingController::class, 'checkCoupon'])->name('checkCoupon');
 Route::get('confirm', [BookingController::class, 'confirm'])->name('confirm');
-Route::post('payment', [BookingController::class, 'payment'])->name('payment');
+Route::post('payment/{booking}', [BookingController::class, 'payment'])->name('payment');
 
 
 
