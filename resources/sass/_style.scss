@@ -1,0 +1,36 @@
+.teacherCard{
+    display: flex;
+    background-color: rgb(202, 202, 202);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-bottom: 5%;
+}
+
+.teacherText{
+    margin-right: 10%;
+    color: rgb(255, 255, 255);
+}
+
+.teacherDeleteText{
+    color: red;
+}
+
+.couseCard{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(202, 202, 202);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-bottom: 5%;
+}
+
+.couseForm form>input{
+    display: block;
+    margin-bottom: 2%;
+}
+.couseForm form>textarea{
+    display: block;
+}
+.couseForm form select{
+    display: block;
+}
