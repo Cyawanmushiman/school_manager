@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Couse;
 use App\Models\Booking;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -50,7 +51,7 @@ class BookingController extends Controller
         ]);
     }
 
-    public function payment(Request $request)
+    public function payment(Request $request, $id)
     {
         $all = $request->all();
         $secret = "sk_test_16ff0f9962c2940fba4a5f7e";
@@ -60,7 +61,17 @@ class BookingController extends Controller
         $customer = \Payjp\Customer::create(array('card' => $all['payjp-token'], 'description' => $description));
         //チャージの作成
         $charge = \Payjp\Charge::create(array('customer' => $customer->id, 'amount' => $request->price, 'currency' => 'jpy', 'description' => $description));
+
         dump($charge);
+        $booking = Booking::findOrFail($id);
+        Payment::create([
+            'booking_id' => $booking->id,
+            'user_id' => 1,
+            'payjp_id' => $charge->id,
+            'amount' => $charge->amount,
+        ]);
+
+
     }
 
     /**
